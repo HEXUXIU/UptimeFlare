@@ -53,7 +53,6 @@ const workerConfig: WorkerConfig = {
     //   //checkLocationWorkerRoute: 'https://xxx.example.com',
     // },
     {
-    {
       id: 'status',
       name: 'Uptime状态站',
       method: 'HEAD',
