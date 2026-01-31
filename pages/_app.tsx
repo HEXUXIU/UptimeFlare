@@ -1,6 +1,6 @@
-// hack: polyfill for Uint8Array.fromHex
-if (!Uint8Array.fromHex) {
-  Uint8Array.fromHex = (hex: string) => {
+const U8 = Uint8Array as unknown as { fromHex?: (hex: string) => Uint8Array };
+if (!U8.fromHex) {
+  U8.fromHex = (hex: string) => {
     if (hex.length % 2 !== 0) throw new Error("Invalid hex length");
     const arr = new Uint8Array(hex.length / 2);
     for (let i = 0; i < hex.length; i += 2) {
@@ -9,6 +9,7 @@ if (!Uint8Array.fromHex) {
     return arr;
   };
 }
+
 import '@mantine/core/styles.css'
 import type { AppProps } from 'next/app'
 import { MantineProvider } from '@mantine/core'
