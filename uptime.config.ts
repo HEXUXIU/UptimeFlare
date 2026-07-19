@@ -62,6 +62,16 @@ const workerConfig: WorkerConfig = {
       expectedCodes: [200],
       timeout: 10000,
     },
+    {
+      id: 'tv',
+      name: 'MoonTV影视站',
+      method: 'HEAD',
+      target: 'https://tv.o0o.top/',
+      statusPageLink: 'https://tv.o0o.top/',
+      hideLatencyChart: false,
+      expectedCodes: [200],
+      timeout: 10000,
+    },
   ],
   notification: {
     // [Optional] Notification webhook settings, if not specified, no notification will be sent
