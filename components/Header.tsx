@@ -1,4 +1,4 @@
-import { Container, Group, Image } from '@mantine/core'
+import { Container, Group, Image, Text } from '@mantine/core'
 import classes from '@/styles/Header.module.css'
 import { pageConfig } from '@/uptime.config'
 import { PageConfigLink } from '@/types/config'
@@ -25,18 +25,25 @@ export default function Header({ style }: { style?: React.CSSProperties }) {
   return (
     <header className={classes.header} style={style}>
       <Container size="md" className={classes.inner}>
-        <div>
+        <div className={classes.logoWrapper}>
           <a
             href={location.pathname == '/' ? 'https://github.com/lyc8503/UptimeFlare' : '/'}
             target={location.pathname == '/' ? '_blank' : undefined}
+            className={classes.logoLink}
           >
-            <Image
-              src={pageConfig.logo ?? '/logo.svg'}
-              h={56}
-              w={{ base: 140, sm: 190 }}
-              fit="contain"
-              alt="logo"
-            />
+            {pageConfig.logo ? (
+              <Image
+                src={pageConfig.logo}
+                h={40}
+                w={{ base: 120, sm: 160 }}
+                fit="contain"
+                alt="logo"
+              />
+            ) : (
+              <Text className={classes.logoText}>
+                {pageConfig.title || 'UptimeFlare'}
+              </Text>
+            )}
           </a>
         </div>
 

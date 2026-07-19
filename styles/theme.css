@@ -1,0 +1,250 @@
+/* ============================================
+   UptimeFlare — Dark Glassmorphism Theme
+   Adapted from user's design system
+   ============================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Rajdhani:wght@500;600;700&display=swap");
+
+/* --- Design Tokens --- */
+:root {
+  /* Colors */
+  --bs-white: rgba(255, 255, 255, 0.92);
+  --bs-dark: rgba(255, 255, 255, 0.96);
+  --bs-green: oklch(0.8 0.12 150);
+  --bs-danger: oklch(0.7 0.16 25);
+  --bs-body-bg: #050611;
+  --bs-blue: oklch(0.72 0.15 260);
+  --bs-warning: oklch(0.78 0.14 85);
+
+  /* Fonts */
+  --wr-font-main: "Rajdhani", "Segoe UI", "Microsoft YaHei", sans-serif;
+  --wr-font-title: "Orbitron", "Rajdhani", "Bahnschrift", "Agency FB",
+    "DIN Condensed", "Segoe UI", "Microsoft YaHei", sans-serif;
+
+  /* Glass tokens */
+  --wr-glass-bg: rgba(18, 20, 38, 0.46);
+  --wr-glass-bg-light: rgba(255, 255, 255, 0.075);
+  --wr-glass-hover: rgba(255, 255, 255, 0.14);
+  --wr-glass-border: 1px solid rgba(255, 255, 255, 0.11);
+  --wr-shadow-main: 0 18px 55px rgba(0, 0, 0, 0.34);
+  --wr-shadow-small: 0 8px 26px rgba(0, 0, 0, 0.24);
+  --wr-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  /* Easing (from emil-design-eng) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-instant: 100ms;
+  --duration-fast: 160ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+}
+
+/* --- Body & Background --- */
+body {
+  background: var(--bs-body-bg) !important;
+  color: var(--bs-dark) !important;
+  font-family: var(--wr-font-main) !important;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Night background overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -5%;
+  background-image: url("https://winered-0v0.com/night.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(13px) brightness(0.38) saturate(0.92);
+  transform: scale(1.03);
+  z-index: -100;
+}
+
+/* Gradient vignette overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top center, rgba(120, 130, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 20% 35%, rgba(60, 120, 255, 0.10), transparent 25%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.42));
+  pointer-events: none;
+  z-index: -99;
+}
+
+/* ============================================
+   Mantine Overrides — Glassmorphism
+   ============================================ */
+
+/* Cards — glass container */
+.mantine-Card-root {
+  background: var(--wr-glass-bg) !important;
+  border: var(--wr-glass-border) !important;
+  box-shadow: var(--wr-shadow-main), var(--wr-inner-glow) !important;
+  backdrop-filter: blur(22px) saturate(155%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(155%) !important;
+  border-radius: 16px !important;
+}
+
+/* Accordion */
+.mantine-Accordion-item {
+  background: transparent !important;
+  border: none !important;
+}
+
+.mantine-Accordion-control {
+  border-radius: 12px !important;
+  transition: background var(--duration-fast) var(--ease-out) !important;
+}
+
+.mantine-Accordion-control:hover {
+  background: var(--wr-glass-hover) !important;
+}
+
+.mantine-Accordion-panel {
+  background: transparent !important;
+}
+
+/* Buttons — glass style */
+.mantine-Button-root {
+  color: var(--bs-dark) !important;
+  background: rgba(255, 255, 255, 0.075) !important;
+  box-shadow: var(--wr-shadow-small), var(--wr-inner-glow) !important;
+  border: var(--wr-glass-border) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  border-radius: 10px !important;
+  transition: background var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out) !important;
+}
+
+.mantine-Button-root:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32), var(--wr-inner-glow) !important;
+}
+
+.mantine-Button-root:active {
+  transform: scale(0.97);
+}
+
+/* Select / Input */
+.mantine-Select-root,
+.mantine-Input-input,
+.mantine-Select-input {
+  background: rgba(255, 255, 255, 0.075) !important;
+  border: var(--wr-glass-border) !important;
+  color: var(--bs-dark) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  border-radius: 10px !important;
+}
+
+/* Tooltip */
+.mantine-Tooltip-tooltip {
+  background: rgba(18, 20, 38, 0.9) !important;
+  border: var(--wr-glass-border) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  color: var(--bs-dark) !important;
+}
+
+/* Modal */
+.mantine-Modal-content {
+  background: var(--wr-glass-bg) !important;
+  border: var(--wr-glass-border) !important;
+  backdrop-filter: blur(22px) saturate(155%) !important;
+  box-shadow: var(--wr-shadow-main) !important;
+}
+
+.mantine-Modal-header {
+  background: transparent !important;
+}
+
+/* Alert */
+.mantine-Alert-root {
+  background: var(--wr-glass-bg-light) !important;
+  border: var(--wr-glass-border) !important;
+  backdrop-filter: blur(12px) saturate(140%) !important;
+  border-radius: 13px !important;
+}
+
+/* Divider */
+.mantine-Divider-root {
+  border-color: rgba(255, 255, 255, 0.11) !important;
+}
+
+/* Links */
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* ============================================
+   Keyframes — Animations
+   ============================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Green bar flow animation */
+@keyframes wr-green-flow {
+  0%, 100% {
+    filter: brightness(0.92);
+    box-shadow: 0 0 5px color-mix(in oklch, var(--bs-green), transparent 62%);
+  }
+  38% {
+    filter: brightness(1.12);
+    box-shadow:
+      0 0 7px color-mix(in oklch, var(--bs-green), transparent 48%),
+      0 0 14px color-mix(in oklch, var(--bs-green), transparent 68%);
+  }
+  70% {
+    filter: brightness(0.98);
+    box-shadow: 0 0 6px color-mix(in oklch, var(--bs-green), transparent 56%);
+  }
+}
+
+/* Breathing status dot */
+@keyframes breath {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 0; }
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .mantine-Container-root {
+    margin-top: 3.5rem !important;
+  }
+}
