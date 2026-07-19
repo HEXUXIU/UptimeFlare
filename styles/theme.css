@@ -5,9 +5,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --bs-text: rgba(255, 255, 255, 0.92);
-  --bs-text-secondary: rgba(255, 255, 255, 0.6);
-  --bs-text-muted: rgba(255, 255, 255, 0.35);
+  --bs-text: #ffffff;
+  --bs-text-secondary: rgba(255, 255, 255, 0.8);
+  --bs-text-muted: rgba(255, 255, 255, 0.5);
   --bs-green: #4ade80;
   --bs-danger: #ef4444;
   --bs-warning: #fbbf24;
