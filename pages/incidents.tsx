@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google'
 import { MaintenanceConfig, MonitorTarget } from '@/types/config'
 import { maintenances, pageConfig, workerConfig } from '@/uptime.config'
 import Header from '@/components/Header'
-import ParticleBackground from '@/components/ParticleBackground'
 import { Box, Button, Center, Container, Group, Select } from '@mantine/core'
 import Footer from '@/components/Footer'
 import { useEffect, useState } from 'react'
@@ -88,7 +87,6 @@ export default function IncidentsPage() {
       </Head>
 
       <main className={inter.className}>
-        <ParticleBackground />
         <Header
           style={{
             marginBottom: '40px',

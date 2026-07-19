@@ -9,7 +9,6 @@ import MonitorList from '@/components/MonitorList'
 import { Center, Text } from '@mantine/core'
 import MonitorDetail from '@/components/MonitorDetail'
 import Footer from '@/components/Footer'
-import ParticleBackground from '@/components/ParticleBackground'
 import { useTranslation } from 'react-i18next'
 import { CompactedMonitorStateWrapper, getFromStore } from '@/worker/src/store'
 
@@ -50,7 +49,6 @@ export default function Home({
       </Head>
 
       <main className={inter.className}>
-        <ParticleBackground />
         <Header />
 
         {state.lastUpdate === 0 ? (

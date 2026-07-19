@@ -1,29 +1,27 @@
 /* ============================================
-   UptimeFlare — Light Theme
-   Google Antigravity inspired
+   UptimeFlare — Dark Theme (Pure Black Background)
    ============================================ */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --bs-body-bg: #f8f9fc;
-  --bs-text: #202124;
-  --bs-text-secondary: #5f6368;
-  --bs-text-muted: #9aa0a6;
-  --bs-green: #059669;
-  --bs-danger: #dc2626;
-  --bs-warning: #d97706;
-  --bs-blue: #3279f9;
+  --bs-text: rgba(255, 255, 255, 0.92);
+  --bs-text-secondary: rgba(255, 255, 255, 0.6);
+  --bs-text-muted: rgba(255, 255, 255, 0.35);
+  --bs-green: #4ade80;
+  --bs-danger: #ef4444;
+  --bs-warning: #fbbf24;
+  --bs-blue: #60a5fa;
+  --bs-body-bg: #000000;
 
   --wr-font-main: "Inter", "Segoe UI", "Microsoft YaHei", sans-serif;
   --wr-font-title: "Inter", "Segoe UI", "Microsoft YaHei", sans-serif;
 
-  --wr-card-bg: #ffffff;
-  --wr-card-border: 1px solid #e8eaed;
-  --wr-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --wr-card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --wr-card-bg: rgba(255, 255, 255, 0.06);
+  --wr-card-border: 1px solid rgba(255, 255, 255, 0.1);
+  --wr-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --wr-card-hover: rgba(255, 255, 255, 0.1);
 
-  /* Easing */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --duration-fast: 160ms;
   --duration-normal: 200ms;
@@ -31,7 +29,7 @@
 }
 
 body {
-  background: var(--bs-body-bg) !important;
+  background: #000000 !important;
   color: var(--bs-text) !important;
   font-family: var(--wr-font-main) !important;
   min-height: 100vh;
@@ -44,11 +42,8 @@ body {
   border: var(--wr-card-border) !important;
   box-shadow: var(--wr-card-shadow) !important;
   border-radius: 12px !important;
-  transition: box-shadow var(--duration-normal) var(--ease-out) !important;
-}
-
-.mantine-Card-root:hover {
-  box-shadow: var(--wr-card-shadow-hover) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
 }
 
 /* Accordion */
@@ -63,7 +58,7 @@ body {
 }
 
 .mantine-Accordion-control:hover {
-  background: #f1f3f4 !important;
+  background: var(--wr-card-hover) !important;
 }
 
 /* Buttons */
@@ -78,22 +73,22 @@ body {
 }
 
 .mantine-Button-root[data-variant="default"] {
-  background: #fff !important;
-  border: 1px solid #dadce0 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   color: var(--bs-text) !important;
 }
 
 .mantine-Button-root[data-variant="default"]:hover {
-  background: #f8f9fa !important;
-  border-color: #d2d4d6 !important;
+  background: rgba(255, 255, 255, 0.14) !important;
 }
 
 /* Input / Select */
 .mantine-Input-input,
 .mantine-Select-input {
-  border: 1px solid #dadce0 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: var(--bs-text) !important;
   border-radius: 8px !important;
-  transition: border-color var(--duration-fast) var(--ease-out) !important;
 }
 
 .mantine-Input-input:focus,
@@ -103,33 +98,38 @@ body {
 
 /* Tooltip */
 .mantine-Tooltip-tooltip {
-  background: #202124 !important;
-  color: #fff !important;
-  font-size: 0.8rem !important;
+  background: #1a1a1a !important;
+  color: var(--bs-text) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Modal */
 .mantine-Modal-content {
+  background: #111 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 12px !important;
+}
+
+.mantine-Modal-header {
+  background: transparent !important;
 }
 
 /* Alert */
 .mantine-Alert-root {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 10px !important;
 }
 
 /* Divider */
 .mantine-Divider-root {
-  border-color: #e8eaed !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Links */
 a {
   text-decoration: none !important;
-}
-
-a:hover {
-  opacity: 0.8;
+  color: inherit !important;
 }
 
 /* Animations */
