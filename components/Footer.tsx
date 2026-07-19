@@ -7,8 +7,18 @@ export default function Footer() {
 
   return (
     <>
-      <Divider mt="lg" />
-      <div dangerouslySetInnerHTML={{ __html: pageConfig.customFooter ?? defaultFooter }} />
+      <Divider
+        mt="lg"
+        style={{
+          transition: 'border-color var(--duration-normal) var(--ease-out)',
+        }}
+      />
+      <div
+        style={{
+          animation: 'fadeIn 400ms var(--ease-out) 300ms both',
+        }}
+        dangerouslySetInnerHTML={{ __html: pageConfig.customFooter ?? defaultFooter }}
+      />
     </>
   )
 }

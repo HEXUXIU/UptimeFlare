@@ -31,11 +31,23 @@ export default function MonitorDetail({
   let statusIcon =
     state.incident[monitor.id].slice(-1)[0].end === undefined ? (
       <IconAlertCircle
-        style={{ width: '1.25em', height: '1.25em', color: '#b91c1c', marginRight: '3px' }}
+        style={{
+          width: '1.25em',
+          height: '1.25em',
+          color: '#b91c1c',
+          marginRight: '3px',
+          transition: 'color var(--duration-normal) var(--ease-out)',
+        }}
       />
     ) : (
       <IconCircleCheck
-        style={{ width: '1.25em', height: '1.25em', color: '#059669', marginRight: '3px' }}
+        style={{
+          width: '1.25em',
+          height: '1.25em',
+          color: '#059669',
+          marginRight: '3px',
+          transition: 'color var(--duration-normal) var(--ease-out)',
+        }}
       />
     )
 
@@ -52,6 +64,7 @@ export default function MonitorDetail({
           height: '1.25em',
           color: '#fab005',
           marginRight: '3px',
+          transition: 'color var(--duration-normal) var(--ease-out)',
         }}
       />
     )
@@ -71,7 +84,19 @@ export default function MonitorDetail({
         <a
           href={monitor.statusPageLink}
           target="_blank"
-          style={{ display: 'inline-flex', alignItems: 'center', color: 'inherit' }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            color: 'inherit',
+            textDecoration: 'none',
+            transition: 'color var(--duration-fast) var(--ease-out)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = 'var(--mantine-color-blue-filled)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = 'inherit'
+          }}
         >
           {statusIcon} {monitor.name}
         </a>

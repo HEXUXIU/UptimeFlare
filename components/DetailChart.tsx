@@ -61,7 +61,8 @@ export default function DetailChart({
       intersect: false,
     },
     animation: {
-      duration: 0,
+      duration: 400,
+      easing: 'easeOutQuart' as const,
     },
     plugins: {
       tooltip: {

@@ -109,7 +109,10 @@ export default function DetailBar({
             borderRadius: '2px',
             marginLeft: '1px',
             marginRight: '1px',
+            cursor: dayDownTime > 0 ? 'pointer' : 'default',
+            transition: 'transform var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out)',
           }}
+          className="hover-lift"
           onClick={() => {
             if (dayDownTime > 0) {
               setModalTitle(

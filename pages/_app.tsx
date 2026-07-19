@@ -11,6 +11,7 @@ if (!U8.fromHex) {
 }
 
 import '@mantine/core/styles.css'
+import '@/styles/animations.css'
 import type { AppProps } from 'next/app'
 import { MantineProvider } from '@mantine/core'
 import NoSsr from '@/components/NoSsr'

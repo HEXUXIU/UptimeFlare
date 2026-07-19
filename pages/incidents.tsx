@@ -109,18 +109,32 @@ export default function IncidentsPage() {
                 <NoIncidentsAlert />
               ) : (
                 monitorFilteredIncidents.map((incident, i) => (
-                  <MaintenanceAlert key={i} maintenance={incident} />
+                  <div
+                    key={i}
+                    style={{
+                      animation: `fadeInUp 300ms var(--ease-out) ${i * 50}ms both`,
+                    }}
+                  >
+                    <MaintenanceAlert maintenance={incident} />
+                  </div>
                 ))
               )}
             </Box>
             <Group justify="space-between" mt="md">
-              <Button variant="default" onClick={() => (window.location.hash = prev)}>
+              <Button variant="default" className="btn-press" onClick={() => (window.location.hash = prev)}>
                 {t('Backwards')}
               </Button>
-              <Box style={{ alignSelf: 'center', fontWeight: 500, fontSize: 18 }}>
+              <Box
+                style={{
+                  alignSelf: 'center',
+                  fontWeight: 500,
+                  fontSize: 18,
+                  animation: 'fadeIn 300ms var(--ease-out) 200ms both',
+                }}
+              >
                 {selectedMonth}
               </Box>
-              <Button variant="default" onClick={() => (window.location.hash = next)}>
+              <Button variant="default" className="btn-press" onClick={() => (window.location.hash = next)}>
                 {t('Forward')}
               </Button>
             </Group>

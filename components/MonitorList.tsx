@@ -52,6 +52,11 @@ export default function MonitorList({
     localStorage.setItem('expandedGroups', JSON.stringify(expandedGroups))
   }, [expandedGroups])
 
+  // Stagger animation for monitor items
+  const staggerStyle = (index: number): React.CSSProperties => ({
+    animation: `fadeInUp 300ms var(--ease-out) ${index * 50}ms both`,
+  })
+
   if (groupedMonitor) {
     // Grouped monitors
     content = (
@@ -61,6 +66,7 @@ export default function MonitorList({
         variant="contained"
         value={expandedGroups}
         onChange={(values) => setExpandedGroups(values)}
+        transitionDuration={250}
       >
         {Object.keys(group).map((groupName) => (
           <Accordion.Item key={groupName} value={groupName}>
@@ -104,9 +110,9 @@ export default function MonitorList({
       </Accordion>
     )
   } else {
-    // Ungrouped monitors
-    content = monitors.map((monitor) => (
-      <div key={monitor.id}>
+    // Ungrouped monitors with stagger animation
+    content = monitors.map((monitor, index) => (
+      <div key={monitor.id} style={staggerStyle(index)}>
         <Card.Section ml="xs" mr="xs">
           <MonitorDetail monitor={monitor} state={state} />
         </Card.Section>

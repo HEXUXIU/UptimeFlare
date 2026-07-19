@@ -87,11 +87,32 @@ export default function OverallStatus({
 
   return (
     <Container size="md" mt="xl">
-      <Center>{icon}</Center>
-      <Title mt="sm" style={{ textAlign: 'center' }} order={1}>
+      <Center
+        style={{
+          animation: 'scaleIn 300ms var(--ease-out) both',
+        }}
+      >
+        {icon}
+      </Center>
+      <Title
+        mt="sm"
+        style={{
+          textAlign: 'center',
+          animation: 'fadeInUp 300ms var(--ease-out) 100ms both',
+        }}
+        order={1}
+      >
         {statusString}
       </Title>
-      <Title mt="sm" style={{ textAlign: 'center', color: '#70778c' }} order={5}>
+      <Title
+        mt="sm"
+        style={{
+          textAlign: 'center',
+          color: '#70778c',
+          animation: 'fadeIn 300ms var(--ease-out) 200ms both',
+        }}
+        order={5}
+      >
         {t('Last updated on', {
           date: new Date(state.lastUpdate * 1000).toLocaleString(),
           seconds: currentTime - state.lastUpdate,
@@ -104,8 +125,14 @@ export default function OverallStatus({
           <Title mt="4px" style={{ textAlign: 'center', color: '#70778c' }} order={5}>
             {t('upcoming maintenance', { count: upcomingMaintenances.length })}{' '}
             <span
-              style={{ textDecoration: 'underline', cursor: 'pointer' }}
+              style={{
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                transition: 'opacity var(--duration-fast) var(--ease-out)',
+              }}
               onClick={() => setExpandUpcoming(!expandUpcoming)}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
             >
               {expandUpcoming ? t('Hide') : t('Show')}
             </span>

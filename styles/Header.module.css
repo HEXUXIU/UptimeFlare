@@ -3,6 +3,9 @@
   margin-bottom: rem(100px);
   background-color: var(--mantine-color-body);
   border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  /* Smooth header background on theme switch */
+  transition: background-color var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
 }
 
 .inner {
@@ -21,13 +24,28 @@
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
   font-size: var(--mantine-font-size-sm);
   font-weight: 500;
+  /* Smooth transitions for interactive states */
+  transition: transform var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
 
   @mixin hover {
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
   }
 
+  &:active {
+    transform: scale(0.97);
+  }
+
   [data-mantine-color-scheme] &[data-active] {
     background-color: var(--mantine-color-blue-filled);
     color: var(--mantine-color-white);
+  }
+}
+
+/* Only apply hover lift on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    transform: translateY(-1px);
   }
 }
