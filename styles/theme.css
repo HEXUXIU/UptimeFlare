@@ -42,7 +42,7 @@
 
 /* --- Body & Background --- */
 body {
-  background: var(--bs-body-bg) !important;
+  background: #050611 !important;
   color: var(--bs-dark) !important;
   font-family: var(--wr-font-main) !important;
   position: relative;
@@ -50,31 +50,17 @@ body {
   overflow-x: hidden;
 }
 
-/* Night background overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -5%;
-  background-image: url("https://winered-0v0.com/night.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(13px) brightness(0.38) saturate(0.92);
-  transform: scale(1.03);
-  z-index: -100;
-}
-
-/* Gradient vignette overlay */
+/* Subtle gradient overlay for depth (no static image, Three.js handles animation) */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at top center, rgba(120, 130, 255, 0.18), transparent 28%),
-    radial-gradient(circle at 20% 35%, rgba(60, 120, 255, 0.10), transparent 25%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.42));
+    radial-gradient(circle at top center, rgba(120, 130, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 20% 35%, rgba(60, 120, 255, 0.05), transparent 30%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.35));
   pointer-events: none;
-  z-index: -99;
+  z-index: -1;
 }
 
 /* ============================================

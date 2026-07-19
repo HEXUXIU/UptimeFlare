@@ -40,9 +40,10 @@ export default function Header({ style }: { style?: React.CSSProperties }) {
                 alt="logo"
               />
             ) : (
-              <Text className={classes.logoText}>
-                {pageConfig.title || 'UptimeFlare'}
-              </Text>
+              <div className={classes.neonLogo}>
+                <span className={classes.neonText}>贺煦修</span>
+                <span className={classes.neonSub}>HEXUXIU</span>
+              </div>
             )}
           </a>
         </div>
